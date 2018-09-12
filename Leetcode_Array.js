@@ -142,69 +142,10 @@ var getRow = function(rowIndex) {
 };
 
 // 167. Two Sum II - Input array is sorted
-// Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
 
-// The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.
-
-// Note:
-
-//     Your returned answers (both index1 and index2) are not zero-based.
-//     You may assume that each input would have exactly one solution and you may not use the same element twice.
-
-// Example:
-
-// Input: numbers = [2,7,11,15], target = 9
-// Output: [1,2]
-// Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
-
-//sample 52 ms submission
-var twoSum = function(numbers, target) {
-    let i=0, j=numbers.length - 1;
-    let sum = 0;
-    
-    while(i<j) {
-        sum = numbers[i] + numbers[j];
-        if(target == sum) {
-            return [i+1, j+1];
-        } else if(sum > target) {
-            j--;
-        } else {
-            i++;
-        }
-    }  
-};
 
 // 189. Rotate Array
-// Given an array, rotate the array to the right by k steps, where k is non-negative.
 
-// Example 1:
-
-// Input: [1,2,3,4,5,6,7] and k = 3
-// Output: [5,6,7,1,2,3,4]
-// Explanation:
-// rotate 1 steps to the right: [7,1,2,3,4,5,6]
-// rotate 2 steps to the right: [6,7,1,2,3,4,5]
-// rotate 3 steps to the right: [5,6,7,1,2,3,4]
-
-// Example 2:
-
-// Input: [-1,-100,3,99] and k = 2
-// Output: [3,99,-1,-100]
-// Explanation: 
-// rotate 1 steps to the right: [99,-1,-100,3]
-// rotate 2 steps to the right: [3,99,-1,-100]
-
-// Note:
-
-//     Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
-//     Could you do it in-place with O(1) extra space?
-
-//sample 60 ms submission
-var rotate = function(nums, k) {
-    var last = nums.slice(nums.length-k)
-    nums.splice(nums.length-k,k)
-    nums.unshift(...last)
-};
 
 
 
