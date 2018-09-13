@@ -14,6 +14,16 @@ Could you optimize your algorithm to use only O(k) extra space?
 
 sample 48 ms submission  */
 var getRow = function(rowIndex) {
+    const arr=[1];
+    for(let i=1; i<rowIndex + 1; i++) {
+        arr[i] = (arr[i-1]*(rowIndex-i+1))/i;
+    }
+    return arr;
+}
+
+//sample 52 ms submission
+
+var getRow = function(rowIndex) {
     var result = [];
     result[0] = 1;
     for(var i = 1 ; i < rowIndex+1 ; i++){            
