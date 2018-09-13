@@ -20,7 +20,7 @@ var searchInsert = function(nums, target) {
         var i = 0
         for (; target > nums[i] ; i++){};
            out = i;
-       }
+    }
     return out ;
 };
 
