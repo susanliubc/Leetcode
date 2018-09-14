@@ -19,21 +19,21 @@ sample 60 ms submission
  * @param {string} b
  * @return {string}
  */
-var addBinary = function(s1, s2) {
-    let i = s1.length - 1;
-    let j = s2.length - 1;
-    let c = 0;
-    let s = '';
+var addBinary = function(a, b) {
+    let i = a.length - 1;
+    let j = b.length - 1;
+    let carry = 0;
+    let res = '';
 
-    while (i >= 0 || j >= 0 || c > 0) {
-        const a = (i < 0) ? 0 : s1[i--] - '0';
-        const b = (j < 0) ? 0 : s2[j--] - '0';
+    while (i >= 0 || j >= 0 || carry > 0) {
+        carry += (i >= 0) ? a[i--] - '0': 0;
+        carry += (j >= 0) ? b[j--] - '0': 0;
 
-        s = (a ^ b ^ c) + s;
-        c = (a + b + c) >>> 1;
+        res = carry%2 + res;
+        carry >> 1;
     }
 
-    return s;
+    return res;
 };
 
 
