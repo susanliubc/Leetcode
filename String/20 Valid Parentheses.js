@@ -81,21 +81,11 @@ var isValid = function(s) {
 var isValid = function(s) {
     let stack = [];
     
-    const arr = s.split('');
-    
-    const openBrackets = ['(', '[', '{'];
-    const closeBrackets = [')', ']', '}'];
-    
-    for(let i = 0; i < arr.length; i++){
-        const character = arr[i];
-        if(openBrackets.includes(character)){
-            stack.push(character);
-        } else {
-            const idx = openBrackets.indexOf(stack.pop());
-            if(closeBrackets[idx] !== character){
-                return false;
-            }
-        }
+    for(let v of s){
+        if(v==='(') stack.push(')')
+        else if(v==='[') stack.push(']')
+        else if(v==='{') stack.push('}')
+        else if(stack.length===0 || stack.pop() !== v) return false
     }
     
     return (stack.length === 0) ? true : false;
